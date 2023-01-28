@@ -16,8 +16,290 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h2>The presentation: Canvas</h2>
+					<p><small>Created by <a href="https://github.com/pshigotskaya26" style="color: #d53f8c">Tatsiana Pshyhotskaya</a></small></p>
+				</section>
+
+				<section>
+					<h4 style="color: #b7b4b4;">1. What is CANVAS?</h4>
+					<p style="font-size: 30px;"><span style="color: #d53f8c;">CANVAS</span> - an HTML5 element designed to create a two-dimensional image using JS-script.</p>
+					<p style="font-size: 30px;"><small style="color: #d53f8c;">or (in other words)</small></p>
+					<p style="font-size: 30px;"><span style="color: #d53f8c;">CANVAS</span> is something of the blank canvas or sheet of the paper.</p>
+					<p><img src="./examples/assets/shapes.jpg" alt="shapes"></p>
+				</section>
+
+				<section>
+					<section>
+						<h4 style="color: #b7b4b4;">2. How can we use a CANVAS?</h4>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.1. Drawing a rectangle</h5>
+						<p><img src="./examples/assets/index-html.jpg" alt="index-html file"></p>
+					</section>
+					<section>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.1. Drawing a rectangle</h5>
+						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>							
+							<script>
+								let canvasEl = document.getElementById("canvas");    // (1)
+								let canvasContext = canvasEl.getContext("2d");      // (2)
+								canvasContext.fillRect(10, 10, 50, 50);            // (3)
+							</script>
+						</code></pre>
+						<p style="font-size: 30px;"><span style="color: #d53f8c;">.fillRect(10, 10, 50, 50)</span></p>
+						<ul style="font-size: 25px;">
+							<li>x-coordinate</li>
+							<li>y-coordinate</li>
+							<li>width of rectangle</li>
+							<li>height of rectangle</li>
+						</ul>
+					</section>
+					<section>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.1. Drawing a rectangle</h5>
+						<p style="font-size: 30px;">Result: small black square</p>
+						<img src="./examples/assets/rectangle-2.jpg" alt="rectangle image"></p>
+					</section>
+					<section>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.1. Drawing a rectangle</h5>
+						<p style="font-size: 30px;">Change color of rectangle:</p>
+						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers="4">
+							<script>
+								let canvasEl1 = document.getElementById("canvas");    // (1)
+								let canvasContext1 = canvasEl1.getContext("2d");      // (2)
+								canvasContext.fillStyle = "Blue";                  // (3)
+								canvasContext.fillRect(10, 10, 50, 50);           // (4)
+							</script>
+						</code></pre>
+						<p style="font-size: 30px;"><span style="color: #d53f8c;">.fillStyle = "Blue"</span></p>
+					</section>
+					<section>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.1. Drawing a rectangle</h5>
+						<p style="font-size: 30px;">Result: small blue square</p>
+						<img src="./examples/assets/rectangle-3.jpg" alt="rectangle image"></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4 style="color: #b7b4b4;">2. How can we use a CANVAS?</h4>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.2. Drawing rectangle outlines</h5>
+						<p><img src="./examples/assets/outline.jpg" alt="outline image"></p>
+						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers="6">
+							<script>
+								let canvasEl2 = document.getElementById("canvas");
+								let canvasContext = canvasEl2.getContext("2d");
+								canvasContext.strokeStyle = "Green";           // (1)
+								canvasContext.lineWidth = 3;                   // (2)
+								canvasContext.strokeRect(20, 20, 200, 50);     // (3)
+							</script>
+						</code></pre>
+					</section>
+					<section>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.2. Drawing rectangle outlines</h5>
+						<p style="font-size: 30px;">Result: a rectangle outline</p>
+						<img src="./examples/assets/rectangle-4.jpg" alt="rectangle outline image"></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4 style="color: #b7b4b4;">2. How can we use a CANVAS?</h4>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.3. Drawing lines or paths</h5>
+						<p><img src="./examples/assets/line-1.jpg" alt="line-path image"></p>
+						<p style="font-size: 30px;"><span style="color: #d53f8c;">Lines</span> on the canvas <span style="color: #d53f8c;">are called paths.</span></p>
+						<p style="font-size: 30px;">To draw a path with the canvas, we use x- and y-coordinates which we set for the start point and the end point of each line.</p>
+					</section>
+					<section>
+						<h4 style="color: #b7b4b4;">2. How can we use a CANVAS?</h4>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.3. Drawing lines or paths</h5>
+						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers="6,7,8,10,11,12">
+							<script>
+								let canvasEl3 = document.getElementById("canvas");
+								let canvasContext = canvasEl3.getContext("2d");
+								canvasContext.strokeStyle = "Green";
+								canvasContext.lineWidth = 5;
+								canvasContext.beginPath();
+								canvasContext.moveTo(10, 10);
+								canvasContext.lineTo(100, 10);
+								canvasContext.strokeStyle = "Pink";
+								canvasContext.moveTo(10, 40);
+								canvasContext.lineTo(100, 40);
+								canvasContext.stroke();
+							</script>
+						</code></pre>
+					</section>
+					<section>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.3. Drawing lines or paths</h5>
+						<p style="font-size: 30px;">Result: two rectangle lines</p>
+						<img src="./examples/assets/lines-1.jpg" alt="lines image"></p>
+					</section>
+					<section>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.3. Drawing lines or paths</h5>
+						<p style="font-size: 30px;"><spanstyle="color: #d53f8c;">To fill a closed path</span> with color, you can use the fill method instead of stroke.</p>
+						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers="14">
+							<script>
+								let canvasEl4 = document.getElementById("canvas");
+								let canvasContext = canvasEl4.getContext("2d");
+								canvasContext.fillStyle = "Green";
+								canvasContext.beginPath();
+								canvasContext.moveTo(20, 20);
+								canvasContext.lineTo(100, 20);
+								canvasContext.lineTo(80, 40);
+								canvasContext.lineTo(100, 60);
+								canvasContext.lineTo(30, 60);
+								canvasContext.lineTo(30, 100);
+								canvasContext.lineTo(20, 100);
+								canvasContext.lineTo(20, 20);
+								canvasContext.fill();
+							</script>
+						</code></pre>
+					</section>
+					<section>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.3. Drawing lines or paths</h5>
+						<p style="font-size: 30px;">Result: we drew a flag (a closed path)</p>
+						<img src="./examples/assets/flaf-closed-path.jpg" alt="flag closed path"></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4 style="color: #b7b4b4;">2. How can we use a CANVAS?</h4>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.4. Drawing Arcs and Circles</h5>
+						<p><img src="./examples/assets/cicle.jpg" alt="circle image"></p>
+						<p style="font-size: 30px;">Besides of lines, paths, rectangles, we can draw circle, arcs and quarter of the circle.</p>
+					</section>
+					<section>
+						<h4 style="color: #b7b4b4;">2. How can we use a CANVAS?</h4>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.4. Drawing Arcs and Circles</h5>
+						<h6 style="color: #d53f8c; font-size: 21px;">2.4.1. Drawing a full Circle</h6>
+						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers="8">
+							<script>
+								let canvasEl5 = document.getElementById("canvas");
+								let canvasContext = canvasEl5.getContext("2d");
+								canvasContext.fillStyle = "Black";
+								canvasContext.lineWidth = 2;
+								canvasContext.strokeStyle = "Black";
+								canvasContext.beginPath();
+								canvasContext.arc(50, 50, 40, 0, Math.PI * 2, false);
+								canvasContext.stroke();
+							</script>
+						</code></pre>
+						<p style="font-size: 30px;"><span style="color: #d53f8c;">.arc(50, 50, 40, 0, Math.PI * 2, false)</span></p>
+						<ul style="font-size: 20px;">
+							<li>x-coordinate of circle center</li>
+							<li>y-coordinate of circle center</li>
+							<li>radius of the circle</li>
+							<li>starting angle (in radian)</li>
+							<li>ending angle (in radian)</li>
+							<li>direction (in clockwise and counterclockwise direction)</li>
+						</ul>
+					</section>
+					<section>
+						<h4 style="color: #b7b4b4;">2. How can we use a CANVAS?</h4>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.4. Drawing Arcs and Circles</h5>
+						<h6 style="color: #d53f8c; font-size: 21px;">2.4.1. Drawing a full Circle</h6>
+						<p style="font-size: 30px;">Result: a full circle</p>
+						<img src="./examples/assets/cicle-1.jpg" alt="full circle"></p>
+					</section>
+
+					<section>
+						<h4 style="color: #b7b4b4;">2. How can we use a CANVAS?</h4>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.4. Drawing Arcs and Circles</h5>
+						<h6 style="color: #d53f8c; font-size: 21px;">2.4.2. Drawing an arc of the Circle</h6>
+						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers="8">
+							<script>
+								let canvasEl6 = document.getElementById("canvas");
+								let canvasContext = canvasEl6.getContext("2d");
+								canvasContext.fillStyle = "Black";
+								canvasContext.lineWidth = 2;
+								canvasContext.strokeStyle = "Black";
+								canvasContext.beginPath();
+								canvasContext.arc(50, 50, 40, 0, Math.PI, false);
+								canvasContext.stroke();
+							</script>
+						</code></pre>
+					</section>
+					<section>
+						<h4 style="color: #b7b4b4;">2. How can we use a CANVAS?</h4>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.4. Drawing Arcs and Circles</h5>
+						<h6 style="color: #d53f8c; font-size: 21px;">2.4.2. Drawing an arc of the Circle</h6>
+						<p style="font-size: 30px;">Result: an arc of the circle</p>
+						<img src="./examples/assets/arc.jpg" alt="arc of the circle"></p>
+					</section>
+
+					<section>
+						<h4 style="color: #b7b4b4;">2. How can we use a CANVAS?</h4>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.4. Drawing Arcs and Circles</h5>
+						<h6 style="color: #d53f8c; font-size: 21px;">2.4.3. Drawing a quarter of the circle</h6>
+						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers="8">
+							<script>
+								let canvasEl7 = document.getElementById("canvas");
+								let canvasContext = canvasEl7.getContext("2d");
+								canvasContext.fillStyle = "Black";
+								canvasContext.lineWidth = 2;
+								canvasContext.strokeStyle = "Black";
+								canvasContext.beginPath();
+								canvasContext.arc(50, 50, 40, 0, Math.PI / 2, false);
+								canvasContext.stroke();
+							</script>
+						</code></pre>
+					</section>
+					<section>
+						<h4 style="color: #b7b4b4;">2. How can we use a CANVAS?</h4>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.4. Drawing Arcs and Circles</h5>
+						<h6 style="color: #d53f8c; font-size: 21px;">2.4.3. Drawing a quarter of the circle</h6>
+						<p style="font-size: 30px;">Result: a quarter of the circle</p>
+						<img src="./examples/assets/quarter-of-cicrle.jpg" alt="quarter of the circle"></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4 style="color: #b7b4b4;">2. How can we use a CANVAS?</h4>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.5. Creating animation</h5>
+						<p><img src="./examples/assets/animation-1.jpg" alt="animation image"></p>
+						<p style="font-size: 30px;">Creating canvas animations in JavaScript is like creating a stop-motion animation.</p>
+						<p style="font-size: 30px; color: #d53f8c;">Animation process:</p>
+						<ul style="font-size: 25px;">
+							<li>draw a shape</li>
+							<li>update position or size of the shape</li>
+							<li>clear the canvas</li>
+							<li>draw a shape again</li>
+						</ul>
+					</section>
+					<section>
+						<h4 style="color: #b7b4b4;">2. How can we use a CANVAS?</h4>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.5. Creating animation</h5>
+						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers="6-15">
+							<script>
+								let canvas8 = document.getElementById("canvas");
+								let canvasContext = canvas8.getContext("2d");
+								let position = 50;
+								canvasContext.fillStyle = "Pink";
+								setInterval(function () {
+									canvasContext.clearRect(0, 0, 300, 300);
+									canvasContext.beginPath();
+									canvasContext.arc(position, 50, 40, 0, Math.PI * 2, false);
+									canvasContext.fill();
+									position++;
+									if (position > 250) {
+										position = 50;
+									}
+								}, 10);
+							</script>
+						</code></pre>
+					</section>
+					<section>
+						<h4 style="color: #b7b4b4;">2. How can we use a CANVAS?</h4>
+						<h5 style="color: #d53f8c; font-size: 25px;">2.5. Creating animation</h5>
+						<p style="font-size: 30px;">Result: a moving circle</p>
+						<img src="./examples/assets/moving-circle.jpg" alt="a moving circle"></p>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h5>The end</h5>
+					</section>
+				</section>
 			</div>
 		</div>
 
